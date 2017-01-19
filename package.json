@@ -1,0 +1,32 @@
+{
+  "name": "oauth2-client-credentials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RizkiMufrizal/ExpressJS-OAuth2-Client-Credentials.git"
+  },
+  "author": "Rizki Mufrizal <mufrizalrizki@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RizkiMufrizal/ExpressJS-OAuth2-Client-Credentials/issues"
+  },
+  "homepage": "https://github.com/RizkiMufrizal/ExpressJS-OAuth2-Client-Credentials#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.7.7",
+    "morgan": "^1.7.0",
+    "node-bcrypt": "0.0.1",
+    "oauth2orize": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-http-bearer": "^1.0.1",
+    "winston": "^2.3.0"
+  }
+}
