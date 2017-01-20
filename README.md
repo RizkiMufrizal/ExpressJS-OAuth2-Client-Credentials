@@ -9,7 +9,7 @@ Project ini menggunakan authentikasi OAuth2 dengan type client credentials
 * jalankan perintah berikut untuk mendaftarkan user anda :
 
 ```
-curl -H "Content-Type: application/json" -X POST -d '{"client_name": "rizkimufrizal", "client_website": "rizkimufrizal.github.io" }' http://localhost:3000/client
+curl -H "Content-Type: application/json" -X POST -d '{"client_name": "rizkimufrizal", "client_website": "https://rizkimufrizal.github.io" }' http://localhost:3000/client
 ```
 
 Jika berhasil maka akan muncul output json seperti berikut.
@@ -28,7 +28,7 @@ Jika berhasil maka akan muncul output json seperti berikut.
 }
 ```
 
-Silahkan simpan client_id dan client_secret yang nantinya berfungsi untuk penukaran dengan access_token dan refresh_token. Untuk mendapatkan access_token dan refresh_token, silahkan jalankan perintah berikut.
+Silahkan simpan client_id dan client_secret yang nantinya berfungsi untuk penukaran dengan access_token dan refresh_token. access_token dan refresh_token. client_id dan client_secret akan di encode dengan algoritma base64 kemudian dikirim ke server sebagai basic authentication. Untuk mendapatkan, silahkan jalankan perintah berikut.
 
 ```
 curl -v -H "Content-Type: application/json" -X POST http://localhost:3000/oauth/token -u <clientId>:<clientSecret> -d '{"grant_type": "client_credentials"}'
@@ -56,13 +56,13 @@ Jika berhasil maka akan muncul access_token dan refresh_token seperti berikut.
 Kemudian anda dapat mengakses resource tersebut dengan perintah seperti berikut.
 
 ```
-curl -X GET http://localhost:3000/restricted -v -H "Authorization: Bearer <accessToken>"
+curl -X GET http://localhost:3000/restricted -v -H "Authorization: Bearer <client_id>:<accessToken>"
 ```
 
 Contohnya :
 
 ```
-curl -X GET http://localhost:3000/restricted -v -H "Authorization: Bearer eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxMmZhMDFkMS0yM2U5LTQ2NWItODY0NS0yOTFiYzgxOWIzMWMiLCJpYXQiOjE0ODQ5MDM3NTJ9.iJJrgVBtA0U-bvvmKXIYcaLvawd9nJaGP9p9wzaAxaY5UImFCKqtZABGk-oeL_-d_13GmzIyA_l2WOhnNP_O1Zk7NRbzIgz7bX17uNJvcXk-HY_jFKoxBpkEhPkHIy93EWm1wLTyR35xtHfImDi4CNe3r0UrVNA1PhJF0MrRCaZEdQSUlcUXny9PzOD8o6kTk6H5SUEXgb-YO0dQGF7FzZrw2TOmSMtBDujiLSGUxQFWS9_gQeAdMFd2bp1TbuYfSzEFhXcMwrometP6uThPT2PK5Tn5gmJhiZDrRxbmgkRs5m8KEKON0beBWb9JWFjlFjNMdZphVLf7QCMEF-WZzg"
+curl -X GET http://localhost:3000/restricted -v -H "Authorization: Bearer 12fa01d1-23e9-465b-8645-291bc819b31c:eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRfaWQiOiIxMmZhMDFkMS0yM2U5LTQ2NWItODY0NS0yOTFiYzgxOWIzMWMiLCJpYXQiOjE0ODQ5MDM3NTJ9.iJJrgVBtA0U-bvvmKXIYcaLvawd9nJaGP9p9wzaAxaY5UImFCKqtZABGk-oeL_-d_13GmzIyA_l2WOhnNP_O1Zk7NRbzIgz7bX17uNJvcXk-HY_jFKoxBpkEhPkHIy93EWm1wLTyR35xtHfImDi4CNe3r0UrVNA1PhJF0MrRCaZEdQSUlcUXny9PzOD8o6kTk6H5SUEXgb-YO0dQGF7FzZrw2TOmSMtBDujiLSGUxQFWS9_gQeAdMFd2bp1TbuYfSzEFhXcMwrometP6uThPT2PK5Tn5gmJhiZDrRxbmgkRs5m8KEKON0beBWb9JWFjlFjNMdZphVLf7QCMEF-WZzg"
 ```
 
 Jika berhasil maka muncul pesan seperti berikut.
