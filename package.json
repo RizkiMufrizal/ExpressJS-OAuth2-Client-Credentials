@@ -21,12 +21,16 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
+    "jsonwebtoken": "^7.2.1",
     "mongoose": "^4.7.7",
     "morgan": "^1.7.0",
     "node-bcrypt": "0.0.1",
+    "node-uuid": "^1.4.7",
     "oauth2orize": "^1.7.0",
     "passport": "^0.3.2",
     "passport-http-bearer": "^1.0.1",
+    "passport-oauth2-client-password": "^0.1.2",
+    "simple-encryptor": "^1.1.0",
     "winston": "^2.3.0"
   }
 }
