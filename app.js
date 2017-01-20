@@ -1,4 +1,4 @@
-(function() {
+(() => {
   'use strict';
 
   const http = require('http'),
@@ -33,13 +33,7 @@
 
   app.use('/', ClientRouter);
 
-  mongoose.connect('mongodb://localhost/Express-OAuth2', function(err, res) {
-    if (err) {
-      return logger.error('koneksi mongodb gagal bung', err);
-    } else {
-      return logger.info('koneksi mongodb berhasil bung');
-    }
-  });
+  mongoose.connect('mongodb://localhost/Express-OAuth2');
 
   app.post('/oauth/token', authorizationOAuth2.token);
 
@@ -50,8 +44,8 @@
   });
 
   var server = http.createServer(app);
-  server.listen(app.get('port'), function() {
-    return console.log('Server jalan pada port ' + app.get('port'));
+  server.listen(app.get('port'), () => {
+    return logger.info('Server jalan pada port ' + app.get('port'));
   });
 
 }).call(this);
